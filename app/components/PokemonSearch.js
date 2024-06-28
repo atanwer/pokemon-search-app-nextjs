@@ -35,9 +35,9 @@ export default function PokemonSearch() {
                         paddingRight: '2.5rem'
                     }}
                 >
-                    <option value="" className="bg-purple-700">All Types</option>
+                    <option value="" className="bg-purple-300">All Types</option>
                     {types.map(type => (
-                        <option key={type} value={type} className="bg-purple-700">{type}</option>
+                        <option key={type} value={type} className="bg-purple-300">{type}</option>
                     ))}
                 </select>
                 <input
