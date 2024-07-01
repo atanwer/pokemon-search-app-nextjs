@@ -48,7 +48,7 @@ export default function PokemonSearch() {
                     className="p-2 rounded glassmorphism text-white placeholder-gray-300 flex-grow"
                 />
             </form>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
                 {pokemon.map(p => (
                     <div
                         key={p.name}
