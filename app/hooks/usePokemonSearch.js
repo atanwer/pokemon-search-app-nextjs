@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 
 export default function usePokemonSearch(selectedType, searchTerm) {
@@ -38,10 +38,12 @@ export default function usePokemonSearch(selectedType, searchTerm) {
         fetchPokemon();
     }, []);
 
-    const filteredPokemon = pokemon.filter(p =>
-        (selectedType === '' || p.type === selectedType) &&
-        p.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const filteredPokemon = useMemo(() => {
+        return pokemon.filter(p =>
+            (selectedType === '' || p.type === selectedType) &&
+            p.name.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+    },[pokemon, selectedType, searchTerm]);
 
     return { pokemon: filteredPokemon, types, loading, error };
 }

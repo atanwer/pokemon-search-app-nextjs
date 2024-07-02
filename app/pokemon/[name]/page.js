@@ -1,4 +1,5 @@
 import { getPokemonDetails } from '@/app/lib/pockmon';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default async function PokemonDetails({ params }) {
@@ -17,7 +18,10 @@ export default async function PokemonDetails({ params }) {
             <div className="glassmorphism max-w-3xl mx-auto overflow-hidden rounded-lg shadow-lg">
                 <div className="md:flex-shrink-0 p-6">
                     <div className="w-full max-w-md mx-auto aspect-square overflow-hidden">
-                        <img
+                        <Image
+                            width={100}
+                            height={100}
+                            priority
                             className="w-full h-full object-contain transition-transform duration-300 hover:scale-110"
                             src={pokemon.image}
                             alt={pokemon.name}

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import usePokemonSearch from '../hooks/usePokemonSearch';
+import Image from 'next/image';
 
 export default function PokemonSearch() {
     const [selectedType, setSelectedType] = useState('');
@@ -56,11 +57,9 @@ export default function PokemonSearch() {
                         className="glassmorphism p-4 rounded cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-105 flex flex-col items-center"
                     >
                         <div className="w-full aspect-square overflow-hidden mb-4 flex items-center justify-center">
-                            <img
-                                src={p.image}
+                            <Image width={100} height={100} src={p.image}
                                 alt={p.name}
-                                className="w-full h-full object-contain transition-transform duration-300 hover:scale-110"
-                            />
+                                className="w-full h-full object-contain transition-transform duration-300 hover:scale-110" />
                         </div>
                         <h2 className="text-xl font-bold mb-2 text-white capitalize">{p.name}</h2>
                         <p className="text-gray-200 capitalize">Type: {p.type}</p>
