@@ -4,11 +4,13 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import usePokemonSearch from '../hooks/usePokemonSearch';
 import Image from 'next/image';
+import useDebounce from '../hooks/useDebounce';
 
 export default function PokemonSearch() {
     const [selectedType, setSelectedType] = useState('');
     const [searchTerm, setSearchTerm] = useState('');
-    const { pokemon, types, loading, error } = usePokemonSearch(selectedType, searchTerm);
+    const debouncedSearch = useDebounce(searchTerm)
+    const { pokemon, types, loading, error } = usePokemonSearch(selectedType, debouncedSearch);
     const router = useRouter();
 
     const handleTypeChange = (e) => setSelectedType(e.target.value);
